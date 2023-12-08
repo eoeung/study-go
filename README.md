@@ -69,7 +69,11 @@
     # 4) 생성된 hello.exe 파일 실행
     $ hello.exe
     ```
+</div>
+
+<div align="center">
 
 ## 🔗 Reference
 [Tucker의 Go 언어 프로그래밍](https://www.youtube.com/playlist?list=PLy-g2fnSzUTBHwuXkWQ834QHDZwLx6v6j)
+
 </div>
