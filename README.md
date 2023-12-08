@@ -70,4 +70,6 @@
     $ hello.exe
     ```
 
+## 🔗 Reference
+[Tucker의 Go 언어 프로그래밍](https://www.youtube.com/playlist?list=PLy-g2fnSzUTBHwuXkWQ834QHDZwLx6v6j)
 </div>
