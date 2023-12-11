@@ -7,6 +7,18 @@ import (
 
 type fooHandler struct{}
 
+type Person struct {
+	Age  int
+	Name string
+}
+
+func (f *Person) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	// request process
+
+	fmt.Fprint(w, "Man age : %d, Man name : %s", f.Age, f.Name)
+
+}
+
 // func (mux *ServeMux) ServeHTTP(w ResponseWriter, r *Request)
 func (f *fooHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "Hello Foo")
@@ -58,6 +70,8 @@ func main() {
 	// Handler, 인스턴스 형태로 등록할 때는 http.Handle을 사용
 	// 인터페이스를 http.ServeHTTP 함수를 사용해서 만들어서 사용
 	http.Handle("/foo", &fooHandler{})
+
+	http.Handle("/maninfo", &Person{Age: 20, Name: "Gildong"})
 
 	http.ListenAndServe(":3000", nil)
 	// func ListenAndServe(addr string, handler Handler) error
