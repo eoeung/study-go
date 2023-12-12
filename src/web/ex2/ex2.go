@@ -19,7 +19,8 @@ type User struct {
 }
 
 func (f *fooHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	user := new(User)
+	user := new(User) // car 구조체의 포인터 생성
+	// new() 함수는 지정된 타입에 대한 포인터를 반환하고, 해당 포인터는 해당 타입의 제로값으로 초기화
 	err := json.NewDecoder(r.Body).Decode(user) // request body의 값을 읽어서, Decode 하겠다는 의미
 
 	// 에러 처리

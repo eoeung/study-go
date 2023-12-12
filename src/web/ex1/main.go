@@ -15,7 +15,7 @@ type Person struct {
 func (f *Person) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	// request process
 
-	fmt.Fprint(w, "Man age : %d, Man name : %s", f.Age, f.Name)
+	fmt.Fprintf(w, "Man age : %d, Man name : %s", f.Age, f.Name)
 
 }
 
