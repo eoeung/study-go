@@ -1,8 +1,8 @@
 package main
 
 import (
-	"goproject/ex3/myapp" // 실행하면 잘 되는데, 에러 발생 → ???
 	"net/http"
+	"web/ex3-2/myapp"
 )
 
 func main() {

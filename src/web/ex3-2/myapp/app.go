@@ -24,7 +24,6 @@ func (f *fooHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 	// 에러 처리
 	if err != nil {
-
 		w.WriteHeader(http.StatusBadRequest)
 		fmt.Fprint(w, "Bad Request : ", err)
 		return
@@ -35,13 +34,15 @@ func (f *fooHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 	data, _ := json.Marshal(user)
 	w.Header().Add("content-type", "application/json") // json 형태로 응답한다고 헤더에 선언
-	w.WriteHeader(http.StatusOK)                       // 200 상태를 헤더에 선언
+	// w.WriteHeader(http.StatusOK)
+	w.WriteHeader(http.StatusCreated)
 	fmt.Fprint(w, string(data))
 }
 
 // 함수로 등록 (HandlerFunc)
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Hello World")
+	// fmt.Fprintln(w, "Hello World") // 테스트할 때, "Hello World\n"로 들어옴
+	fmt.Fprint(w, "Hello World")
 }
 
 func barHandler(w http.ResponseWriter, r *http.Request) {
