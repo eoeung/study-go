@@ -59,3 +59,7 @@ func NewHttpHandler() http.Handler {
 	mux.Handle("/foo", &fooHandler{})
 	return mux
 }
+
+func FuncA(param string) {
+	//......
+}
