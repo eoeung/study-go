@@ -42,7 +42,9 @@ func sendMessage(name, msg string) {
 
 func processMsgCh(es eventsource.EventSource) {
 	for msg := range msgCh {
+		fmt.Println("### msg ::: ", msg)
 		data, _ := json.Marshal(msg)
+		fmt.Println("### string(data) ::: ", string(data))
 		es.SendEventMessage(string(data), "", strconv.Itoa(time.Now().Nanosecond()))
 	}
 }
@@ -51,7 +53,7 @@ func main() {
 	msgCh = make(chan Message)
 
 	// EventSource
-	es := eventsource.New(nil, nil) // 이벤트소스 오픈
+	es := eventsource.New(nil, nil) // EventSource 인스턴스 생성 // 이벤트소스 오픈
 	defer es.Close()
 
 	go processMsgCh(es)
