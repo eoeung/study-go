@@ -30,11 +30,17 @@ func logger2(w http.ResponseWriter, r *http.Request, h http.Handler) {
 // func encrypt().. 등 부가 기능을 추가할 수 있음
 
 func NewHandler() http.Handler {
-	h := myapp.NewHandler()
+	// h := myapp.NewHandler()
+	// // NewDecoHandler 구현된 http handle (input http handle)
+	// h = decoHandler.NewDecoHandler(h, logger)
+	// h = decoHandler.NewDecoHandler(h, logger2)
+
+	h1 := myapp.NewHandler()
 	// NewDecoHandler 구현된 http handle (input http handle)
-	h = decoHandler.NewDecoHandler(h, logger)
-	h = decoHandler.NewDecoHandler(h, logger2)
-	return h
+	h2 := decoHandler.NewDecoHandler(h1, logger)
+	h3 := decoHandler.NewDecoHandler(h2, logger2)
+
+	return h3
 
 	/*
 		2023/12/15 11:44:21 [LOGGER2] Started

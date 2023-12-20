@@ -9,8 +9,8 @@ import (
 type DecoratorFunc func(http.ResponseWriter, *http.Request, http.Handler)
 
 type DecoHandler struct {
-	fn DecoratorFunc
 	h  http.Handler
+	fn DecoratorFunc
 }
 
 // http.Handler 인터페이스를 구현해야함
@@ -27,7 +27,7 @@ func (self *DecoHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 func NewDecoHandler(h http.Handler, fn DecoratorFunc) http.Handler {
 	return &DecoHandler{
-		fn: fn,
 		h:  h, // wrapping : 기존 핸들러(http.Handler)를 감싸고 있음
+		fn: fn,
 	}
 }
