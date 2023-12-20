@@ -37,4 +37,18 @@ func main() {
 	// => 정수간 나눗셈으로 간주
 	fmt.Println(f, reflect.TypeOf(f))  // 0 int
 	fmt.Println(reflect.TypeOf(100.0)) // float64
+
+	const (
+		Visa   = "Visa"
+		Master = "Master"
+		Amex   = "American Express"
+	)
+	fmt.Println(Visa, Master, Amex)
+
+	const (
+		Apple  = iota // 0
+		Banana        // 1
+		Grape         // 2
+	)
+	fmt.Println(Apple, Banana, Grape)
 }
