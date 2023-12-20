@@ -1,0 +1,15 @@
+<html>
+<head>
+<!--
+    - partial : Component별로 구축하고 싶을 경우에 사용한다.
+    - title을 바로 적지 않고, 다른 파일에서 가져온다는 의미
+
+    // partial을 사용할 때는, {{ partial "title"}}에 적어준 값과 메인으로 설정한 body를 하이픈으로 이은 파일명으로 작성해줘야함
+-->
+<title>{{ partial "title"}}</title>
+</head>
+<body>
+Hello World
+{{ yield }} 
+</body>
+</html>
