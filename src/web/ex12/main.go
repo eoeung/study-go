@@ -105,6 +105,14 @@ func main() {
 		// NewLogger() *Logger
 		// NewStatic(directory http.FileSystem) *Static
 		// http.Dir은 http.FileSystem 인터페이스를 구현하고 있음
+
+		// README.md 발췌
+		negroni.Classic() provides some default middleware that is useful for most applications:
+		negroni.Recovery - Panic Recovery Middleware.
+		negroni.Logger - Request/Response Logger Middleware.
+		negroni.Static - Static File serving under the "public" directory.
+		→ 정적 파일을 serving하는 negroni.Static 때문에 "/"가 작동하는 것 같음
+		// public 밑에 있는 "public/index.html"을 읽는 것 같음
 	*/
 	n.UseHandler(mux)
 
