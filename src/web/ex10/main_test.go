@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"bytes"
+	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -35,17 +36,19 @@ func TestDecoHandler(t *testing.T) {
 	buf := &bytes.Buffer{}
 	log.SetOutput(buf)
 
-	resp, err := http.Get(ts.URL)
+	// resp, err := http.Get(ts.URL)
+	resp, err := http.Get(ts.URL + "/ttt")
+	fmt.Printf("main_test :::::::::: %s\n", ts.URL+"/ttt")
 	assert.NoError(err)
 	assert.Equal(http.StatusOK, resp.StatusCode)
 
 	r := bufio.NewReader(buf)    // binary buffer를 한 줄로 읽기 위해 bufio 패키지 호출
 	line, _, err := r.ReadLine() // 한 줄씩 읽는 bufio.Reader의 메서드
 	assert.NoError(err)
-	assert.Contains(string(line), "[LOGGER1] Started")
+	assert.Contains(string(line), "[LOGGER2] Started")
 
 	// 한 줄 더 읽는다.
 	line, _, err = r.ReadLine() // 한 줄씩 읽는 bufio.Reader의 메서드
 	assert.NoError(err)
-	assert.Contains(string(line), "[LOGGER1] Completed")
+	assert.Contains(string(line), "[LOGGER1] Started")
 }

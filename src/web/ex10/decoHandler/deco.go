@@ -1,6 +1,10 @@
 package decoHandler
 
-import "net/http"
+import (
+	"fmt"
+	"net/http"
+	"reflect"
+)
 
 type DecoratorFunc func(http.ResponseWriter, *http.Request, http.Handler)
 
@@ -11,6 +15,7 @@ type DecoHandler struct {
 
 // http.Handler 인터페이스를 구현해야함
 func (self *DecoHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	fmt.Println(reflect.TypeOf(self.h))
 	self.fn(w, r, self.h)
 }
 

@@ -8,7 +8,13 @@ import (
 )
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("GET '/' ::: Hello World")
 	fmt.Fprint(w, "Hello World")
+}
+
+func tttHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("GET '/ttt' ::: tttttttttttt")
+	fmt.Fprint(w, "tttttttttttt")
 }
 
 func NewHandler() http.Handler {
@@ -20,5 +26,6 @@ func NewHandler() http.Handler {
 	// gorilla mux 구현
 	mux := mux.NewRouter()
 	mux.HandleFunc("/", indexHandler)
+	mux.HandleFunc("/ttt", tttHandler)
 	return mux
 }

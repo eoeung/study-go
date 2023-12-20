@@ -15,6 +15,7 @@ func logger(w http.ResponseWriter, r *http.Request, h http.Handler) {
 	log.Println("[LOGGER1] Started")                                           // 핸들러를 호출하기 전, start 로그 출력
 	h.ServeHTTP(w, r)                                                          // Handler.ServeHTTP()를 구현
 	log.Println("[LOGGER1] Completed time:", time.Since(start).Milliseconds()) // h.ServeHTTP(w, r)을 실행하고 종료까지 시간을 출력
+
 }
 
 func logger2(w http.ResponseWriter, r *http.Request, h http.Handler) {
@@ -30,9 +31,11 @@ func logger2(w http.ResponseWriter, r *http.Request, h http.Handler) {
 
 func NewHandler() http.Handler {
 	h := myapp.NewHandler()
+	// NewDecoHandler 구현된 http handle (input http handle)
 	h = decoHandler.NewDecoHandler(h, logger)
 	h = decoHandler.NewDecoHandler(h, logger2)
 	return h
+
 	/*
 		2023/12/15 11:44:21 [LOGGER2] Started
 		2023/12/15 11:44:21 [LOGGER1] Started
