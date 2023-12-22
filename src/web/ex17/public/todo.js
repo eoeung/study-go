@@ -3,6 +3,8 @@
     $(function() {
       var todoListItem = $('.todo-list');
       var todoListInput = $('.todo-list-input');
+
+      // todo 항목 추가
       $('.todo-list-add-btn').on("click", function(event) {
         event.preventDefault();
   
