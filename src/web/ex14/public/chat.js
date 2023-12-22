@@ -1,4 +1,6 @@
 $(function(){
+    // 현재 브라우저가 EventSource를 지원하는지 확인
+    // https://developer.mozilla.org/en-US/docs/Web/API/EventSource#browser_compatibility
     if(!window.EventSource){
         alert("No EventSource");
         return;
@@ -7,6 +9,7 @@ $(function(){
     const $chatlog = $('#chat-log');
     const $chatmsg = $('#chat-msg');
 
+    // 빈 값 유효성 검사
     const isBlank = function(string){
         return string == null || string.trim() === "";
     };
@@ -22,8 +25,8 @@ $(function(){
     // 채팅 메시지 전송
     $('#input-form').on('submit', function(e){
         $.post('/messages', {
+            name: username,
             msg: $chatmsg.val(),
-            name: username
         });
         $chatmsg.val("");
         $chatmsg.focus();
@@ -53,7 +56,9 @@ $(function(){
     // })
 
     // 이벤트소스 생성
-    const es = new EventSource('/stream')
+    // new EventSource(url, options)
+    const es = new EventSource('/stream'); // 서버에서 만들어 놓은 EventSource 인스턴스와 연결
+    // EventSource 연결되면
     es.onopen = function(e){
         // 유저 추가
         $.post("/users", {
@@ -61,11 +66,14 @@ $(function(){
         })
     }
 
+    // EventSource를 통한 데이터 수신
     es.onmessage = function(e){
         msg = JSON.parse(e.data);
         addMessage(msg);
     }
 
+    // unload 전 이벤트
+    // Ex) 브라우저 닫기
     window.onbeforeunload = function(){
         $.ajax({
             url: "/users?username=" + username,
