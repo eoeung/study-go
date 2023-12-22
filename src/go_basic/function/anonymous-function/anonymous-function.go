@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func main() {
 	// 예제로 배우는 GO 프로그래밍
 	// [익명 함수]
@@ -15,7 +17,7 @@ func main() {
 	}
 
 	result := sum(1, 2, 3, 4, 5)
-	println(result)
+	fmt.Println(result)
 
 	// [일급 함수]
 	// 프로그래밍 언어가 해당 언어의 함수들이 다른 변수처럼 다루어지는 경우, 일급 함수를 가진다고 한다.
@@ -26,14 +28,14 @@ func main() {
 
 	// add 함수 전달
 	r1 := calc(add, 10, 20)
-	println(r1) // 30
+	fmt.Println(r1) // 30
 
 	r2 := calc(func(x, y int) int { return x - y }, 10, 20)
-	println(r2) // -10
+	fmt.Println(r2) // -10
 
 	// [type]을 이용한 함수 원형 정의
 	r3 := calc2(add, 10, 20)
-	println(r3) // 30
+	fmt.Println(r3) // 30
 }
 
 // [일급 함수]

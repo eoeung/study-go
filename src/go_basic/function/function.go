@@ -9,13 +9,13 @@ func main() {
 	// 예제로 배우는 GO 프로그래밍
 	// 1) Pass by Value
 	msg := "Hello"
-	println(msg, &msg) // Hello 0xc000069f48
-	say(msg)           // Hello 0xc000069f28
+	fmt.Println(msg, &msg) // Hello 0xc000069f48
+	say(msg)               // Hello 0xc000069f28
 	// → 주소 값이 다르게 출력됨 => msg의 값인 "Hello"가 복사되어 함수 say()에 전달됨
 
 	// 2) Pass by Reference
-	say2(&msg)         // 0xc000069f48 Hello 0xc000069f28
-	println(msg, &msg) // Changed 0xc000069f48
+	say2(&msg)             // 0xc000069f48 Hello 0xc000069f28
+	fmt.Println(msg, &msg) // Changed 0xc000069f48
 	// → 주소값이 똑같이 출력됨 (0xc000069f48) => 동일한 주소값에서 값만 변경됨
 
 	// 3) 가변 인자 함수
@@ -25,27 +25,27 @@ func main() {
 	// 4) 함수 리턴 값
 	// (1) 1개 리턴
 	total := sum(1, 7, 3, 5, 9)
-	println(total)
+	fmt.Println(total)
 
 	// (2) 복수개 리턴
 	count, total := sum2(2, 8, 4, 6, 10)
-	println(count, total)
+	fmt.Println(count, total)
 
 	// (3) Named Return Parameter
 	count2, total2, duration := sum3(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-	println(count2, total2, duration)
+	fmt.Println(count2, total2, duration)
 
 	// go by example
 }
 
 // 1) Pass by Value
 func say(msg string) {
-	println(msg, &msg)
+	fmt.Println(msg, &msg)
 }
 
 // 2) Pass by Reference
 func say2(msg *string) { // string값이 저장된 포인터인 msg를 인자로 넘긴다.
-	println(msg, *msg, &msg)
+	fmt.Println(msg, *msg, &msg)
 	// msg = "1234" // cannot use "1234" (untyped string constant) as *string value in assignment
 	// → 포인터 타입에 직접적으로 값 할당은 불가능
 
@@ -54,11 +54,11 @@ func say2(msg *string) { // string값이 저장된 포인터인 msg를 인자로
 
 // 3) 가변 인자 함수
 func say3(msg ...string) {
-	println(msg)
+	fmt.Println(msg)
 	fmt.Printf("%T", msg) // []string
 
 	for index, value := range msg {
-		println(index, value)
+		fmt.Println(index, value)
 	}
 }
 
