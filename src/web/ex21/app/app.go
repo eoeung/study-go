@@ -102,6 +102,7 @@ func CheckSignin(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) 
 	if strings.Contains(r.URL.Path, "/signin") ||
 		strings.Contains(r.URL.Path, "/auth") {
 		next(w, r)
+		return
 	}
 
 	sessionID := getSessionID(r)
@@ -129,6 +130,8 @@ func MakeHandler(filepath string) *AppHandler {
 		negroni.NewLogger(),
 		negroni.HandlerFunc(CheckSignin),
 		negroni.NewStatic(http.Dir("public")))
+	// negroni.NewStatic(http.Dir("static")))
+	// negroni.NewStatic(http.Dir("public/original")))
 	n.UseHandler(r)
 
 	// AppHandler : 핸들러/DB를 모두 사용할 수 있도록 설정

@@ -17,11 +17,11 @@ import (
 func TestTodos(t *testing.T) {
 	// 테스트 진행 시, test.db를 지우고 테스트 진행
 	// → 기존 record값이 그대로 남아있는 문제 해결
-	os.Remove("./test.db")
+	os.Remove("../test.db")
 
 	assert := assert.New(t)
 
-	ah := MakeHandler("./test.db")
+	ah := MakeHandler("../test.db")
 	defer ah.Close() // DB close
 
 	ts := httptest.NewServer(ah) // 핸들러를 넣어준다.
