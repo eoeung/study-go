@@ -13,6 +13,10 @@ func main() {
 	m := app.MakeHandler("./test.db")
 	defer m.Close()
 	n := negroni.Classic()
+	// n := negroni.New(
+	// 	negroni.NewRecovery(),
+	// 	negroni.NewLogger(),
+	// 	negroni.NewStatic(http.Dir("public/original")))
 	n.UseHandler(m)
 
 	log.Println("Started")
