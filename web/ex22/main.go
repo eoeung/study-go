@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
-	"web/ex22/app"
+	"study-go/web/ex22/app"
 )
 
 func main() {

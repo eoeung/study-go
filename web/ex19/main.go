@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
-	"web/ex19/app"
+	"study-go/web/ex19/app"
 
 	"github.com/urfave/negroni"
 )

@@ -1,4 +1,4 @@
-module web/ex5-1
+module study-go/web/ex5-1
 
 // module goproject/web ... 등 다른 이름으로 하면 경로가 불일치해서 에러 발생
 // $ go mod init

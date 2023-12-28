@@ -2,7 +2,7 @@ package main
 
 import (
 	"net/http"
-	"web/ex3-2/myapp"
+	"study-go/web/ex3-2/myapp"
 )
 
 func main() {

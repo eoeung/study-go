@@ -7,8 +7,8 @@ import (
 	"net/http/httptest"
 	"net/url"
 	"strconv"
+	"study-go/web/ex18/model"
 	"testing"
-	"web/ex18/model"
 
 	"github.com/stretchr/testify/assert"
 )

@@ -1,4 +1,4 @@
-module web/ex10
+module study-go/web/ex10
 
 go 1.21.5
 

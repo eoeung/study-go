@@ -1,4 +1,4 @@
-module web/ex3-1
+module study-go/web/ex3-1
 
 go 1.21.5
 

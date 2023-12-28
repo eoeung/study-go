@@ -3,7 +3,7 @@ package app
 import (
 	"net/http"
 	"strconv"
-	"web/ex18/model"
+	"study-go/web/ex18/model"
 
 	"github.com/gorilla/mux"
 	"github.com/unrolled/render"

@@ -3,9 +3,9 @@ package main
 import (
 	"log"
 	"net/http"
+	"study-go/web/ex10/decoHandler"
+	"study-go/web/ex10/myapp"
 	"time"
-	"web/ex10/decoHandler"
-	"web/ex10/myapp"
 )
 
 func logger(w http.ResponseWriter, r *http.Request, h http.Handler) {

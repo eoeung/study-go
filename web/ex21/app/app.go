@@ -5,7 +5,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
-	"web/ex21/model"
+	"study-go/web/ex21/model"
 
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"

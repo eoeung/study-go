@@ -8,8 +8,8 @@ import (
 	"net/url"
 	"os"
 	"strconv"
+	"study-go/web/ex20/model"
 	"testing"
-	"web/ex20/model"
 
 	"github.com/stretchr/testify/assert"
 )
