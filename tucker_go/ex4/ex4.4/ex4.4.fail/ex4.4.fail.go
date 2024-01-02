@@ -10,4 +10,6 @@ func main() {
 
 	var e int64 = 7 // int64
 	f := a * e      // int * int64 // 에러 // invalid operation: a * e (mismatched types int and int64
+
+	var g int = b * 3 // 에러 : float64 * int연산 불가능
 }

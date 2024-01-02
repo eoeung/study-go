@@ -15,6 +15,7 @@ func main() {
 	// var k int64 = 20
 
 	// l = g+k // invalid operation: g + k (mismatched types int32 and int64)
+	fmt.Printf("%T\n", e) // string
 
 	fmt.Println(a, b, c, d, e, f)
 }
