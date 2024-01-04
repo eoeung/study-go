@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// a int, b int = a, b int
+// [멀티 반환 함수]
 func Divide(a, b int) (int, bool) {
 	if b == 0 {
 		return 0, false

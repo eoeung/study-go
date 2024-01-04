@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// 함수 순서는 상관없음
+// 함수의 위치는 상관없음
 // func Add(a int, b int) int {
 // 	return a + b
 // }
@@ -14,7 +14,7 @@ func main() {
 	fmt.Println(c)
 }
 
-// 함수 순서는 상관없음
+// 함수의 위치는 상관없음
 func Add(a int, b int) int {
 	return a + b
 }

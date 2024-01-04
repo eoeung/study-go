@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func Divide(a, b int) (result int, success bool) {
+func Divide(a, b int) (result int, success bool) { // [변수명 지정해서 반환]
 	if b == 0 {
 		result = 0
 		success = false
